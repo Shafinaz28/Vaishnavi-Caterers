@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <!-- Tailwind CSS Play CDN -->
+   <!-- Add this to your <head> tag -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -101,7 +103,7 @@
 
   <!-- HERO -->
   <section class="hero relative min-h-[100svh] flex items-center justify-center text-center overflow-hidden px-6 py-24">
-    <div class="absolute inset-0 bg-cover bg-center scale-105" style="background-image:url('https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=1800&q=80');"></div>
+    <div class="absolute inset-0 bg-cover bg-center scale-105" style="background-image:url('./images/hero.jpg');"></div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(67,15,28,0.4)_0%,_rgba(43,9,18,0.95)_85%),_linear-gradient(to_bottom,_rgba(67,15,28,0.6),_rgba(43,9,18,0.98))]"></div>
     <div class="hero-inner relative z-10 max-w-4xl mx-auto">
       <div class="eyebrow inline-flex items-center gap-4 text-gold-bright text-xs tracking-[0.4em] uppercase mb-8 after:w-8 sm:after:w-12 after:h-px after:bg-gold-bright/60 before:w-8 sm:before:w-12 before:h-px before:bg-gold-bright/60">Malleshwaram, Bangalore</div>
@@ -371,61 +373,80 @@
     </div>
   </section>
 
-  <!-- MENU -->
-  <section class="section menu bg-maroon-deep text-ivory py-28" id="menu">
+ <!-- MENU -->
+  <section class="section menu bg-maroon-deep text-ivory py-12" id="menu">
     <div class="wrap max-w-7xl mx-auto px-6 md:px-12">
-      <div class="section-head text-center max-w-2xl mx-auto mb-16 reveal">
-        <div class="section-eyebrow text-gold-bright text-xs tracking-[0.3em] uppercase font-bold mb-3">The Gastronomic Array</div>
-        <h2 class="font-serif text-4xl sm:text-5xl text-ivory font-bold">Served Custom To Your Taste</h2>
-        <div class="divider w-32 h-4 mx-auto mt-4 text-gold-bright">
+      <!-- Section Header Control with Compressed Margins -->
+      <div class="section-head text-center max-w-2xl mx-auto mb-6 reveal">
+        <div class="section-eyebrow text-gold-bright text-xs tracking-[0.3em] uppercase font-bold mb-2">The Gastronomic Array</div>
+        <h2 class="font-serif text-3xl sm:text-4xl text-ivory font-bold">Served Custom To Your Taste</h2>
+        <div class="divider w-28 h-3 mx-auto mt-2 text-gold-bright">
           <svg viewBox="0 0 110 14" class="w-full h-full fill-none stroke-current" stroke-width="2"><path d="M0 7 Q 27.5 0 55 7 T 110 7"/></svg>
         </div>
       </div>
       
-      <div class="leaf-tabs flex flex-wrap justify-center gap-2 sm:gap-3 mb-12" id="leafTabs"></div>
+      <!-- Compressed Tab Spacing -->
+      <div class="leaf-tabs flex flex-wrap justify-center gap-2 sm:gap-3 mb-6" id="leafTabs"></div>
       
-      <div class="relative border border-leaf-light/30 bg-[radial-gradient(ellipse_at_center,_rgba(76,107,69,0.2),_transparent_75%)] rounded-lg p-6 sm:p-12 min-h-[320px]">
-        <div class="absolute top-4 left-4 w-6 sm:w-8 h-6 sm:h-8 border-t-2 border-l-2 border-leaf-light/40 rounded-tl"></div>
-        <div class="absolute bottom-4 right-4 w-6 sm:w-8 h-6 sm:h-8 border-b-2 border-r-2 border-leaf-light/40 rounded-br"></div>
-        <div class="item-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="itemGrid"></div>
+      <!-- Menu Item Display Panel Area -->
+      <div class="relative border border-leaf-light/30 bg-[radial-gradient(ellipse_at_center,_rgba(76,107,69,0.2),_transparent_75%)] rounded-lg p-5 sm:p-8 min-h-[260px]">
+        <div class="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-leaf-light/40 rounded-tl"></div>
+        <div class="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-leaf-light/40 rounded-br"></div>
+        <div class="item-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" id="itemGrid"></div>
       </div>
     </div>
   </section>
 
-  <!-- WHY CHOOSE US -->
-  <section class="section why-choose relative py-28 bg-cover bg-center bg-no-repeat" id="why" style="background-image: url('https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=1600&q=80');">
-    <div class="absolute inset-0 bg-ivory/96 backdrop-blur-[1px]"></div>
+<!-- WHY CHOOSE US -->
+  <section class="section relative py-16 bg-cream" id="why">
     <div class="wrap max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-      <div class="section-head text-center max-w-2xl mx-auto mb-20 reveal">
-        <div class="section-eyebrow text-maroon text-xs tracking-[0.3em] uppercase font-bold mb-3">Our Structural Code</div>
+      
+      <!-- Section Header Control with Custom Smooth Organic Divider -->
+      <div class="section-head text-center max-w-2xl mx-auto mb-12 reveal">
+        <span class="text-maroon text-xs tracking-[0.3em] uppercase font-bold mb-2 block">Our Structural Code</span>
         <h2 class="font-serif text-4xl sm:text-5xl text-maroon-deep font-bold">Sri Vaishnavi's Promise</h2>
+        
+        <!-- Smooth Organic Divider Line -->
+        <div class="w-32 h-3 mx-auto mt-3 text-gold">
+          <svg viewBox="0 0 120 10" class="w-full h-full fill-none stroke-current" stroke-width="2" stroke-linecap="round">
+            <path d="M 10,5 C 40,-2 80,12 110,5" />
+          </svg>
+        </div>
       </div>
       
-      <div class="why-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="why-card reveal bg-cream/90 backdrop-blur-sm rounded-lg p-8 border border-maroon/5 shadow-sm space-y-4">
-          <div class="text-maroon text-3xl"><i class="fas fa-star"></i></div>
-          <h3 class="text-xl text-maroon-deep font-bold font-serif">Authentic Recipes</h3>
+      <!-- Content Grid Layout -->
+      <div class="why-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+        <!-- Card 1 -->
+        <div class="why-card bg-ivory rounded-lg p-6 border border-maroon/5 shadow-sm space-y-3 transition-all hover:-translate-y-1 hover:shadow-md">
+          <div class="text-maroon text-2xl"><i class="fas fa-star"></i></div>
+          <h3 class="text-lg text-maroon-deep font-bold font-serif">Authentic Recipes</h3>
           <p class="text-xs text-ink-soft leading-relaxed font-light">Pure, time-honored South Indian preparations built alongside fresh components sourced from heritage local chains.</p>
         </div>
-        <div class="why-card reveal bg-cream/90 backdrop-blur-sm rounded-lg p-8 border border-maroon/5 shadow-sm space-y-4">
-          <div class="text-maroon text-3xl"><i class="fas fa-heart"></i></div>
-          <h3 class="text-xl text-maroon-deep font-bold font-serif">Granular Adjustments</h3>
+        
+        <!-- Card 2 -->
+        <div class="why-card bg-ivory rounded-lg p-6 border border-maroon/5 shadow-sm space-y-3 transition-all hover:-translate-y-1 hover:shadow-md">
+          <div class="text-maroon text-2xl"><i class="fas fa-heart"></i></div>
+          <h3 class="text-lg text-maroon-deep font-bold font-serif">Granular Adjustments</h3>
           <p class="text-xs text-ink-soft leading-relaxed font-light">Custom component re-allocation setups scaled to match strict macro dietary or community specific food layouts flawlessly.</p>
         </div>
-        <div class="why-card reveal bg-cream/90 backdrop-blur-sm rounded-lg p-8 border border-maroon/5 shadow-sm space-y-4">
-          <div class="text-maroon text-3xl"><i class="fas fa-clock"></i></div>
-          <h3 class="text-xl text-maroon-deep font-bold font-serif">Punctual Staging</h3>
+        
+        <!-- Card 3 -->
+        <div class="why-card bg-ivory rounded-lg p-6 border border-maroon/5 shadow-sm space-y-3 transition-all hover:-translate-y-1 hover:shadow-md">
+          <div class="text-maroon text-2xl"><i class="fas fa-clock"></i></div>
+          <h3 class="text-lg text-maroon-deep font-bold font-serif">Punctual Staging</h3>
           <p class="text-xs text-ink-soft leading-relaxed font-light">Highly strategic distribution timelines guarantee physical buffet readiness completed early across any destination node.</p>
         </div>
-        <div class="why-card reveal bg-cream/90 backdrop-blur-sm rounded-lg p-8 border border-maroon/5 shadow-sm space-y-4">
-          <div class="text-maroon text-3xl"><i class="fas fa-check-circle"></i></div>
-          <h3 class="text-xl text-maroon-deep font-bold font-serif">Trusted Longevity</h3>
+        
+        <!-- Card 4 -->
+        <div class="why-card bg-ivory rounded-lg p-6 border border-maroon/5 shadow-sm space-y-3 transition-all hover:-translate-y-1 hover:shadow-md">
+          <div class="text-maroon text-2xl"><i class="fas fa-check-circle"></i></div>
+          <h3 class="text-lg text-maroon-deep font-bold font-serif">Trusted Longevity</h3>
           <p class="text-xs text-ink-soft leading-relaxed font-light">Over two decades of operations managing high-tier catering arrays for generations of families inside Bangalore.</p>
         </div>
       </div>
+
     </div>
   </section>
-
   <!-- REVIEWS -->
   <section class="section testimonials bg-cream py-28 overflow-hidden" id="testimonials">
     <div class="wrap max-w-7xl mx-auto px-6 md:px-12">
@@ -457,7 +478,8 @@
 
       <!-- INTERACTIVE INPUT FORM WITH FONT AWESOME ICONS -->
       <div class="bg-maroon/20 p-6 sm:p-10 rounded-lg border border-gold/10 backdrop-blur-md shadow-2xl flex flex-col justify-center">
-        <form class="grid gap-4 text-left" onsubmit="handleQuoteSubmit(event)">
+        <!-- Added id for easy DOM targeting -->
+        <form id="cateringQuoteForm" class="grid gap-4 text-left" onsubmit="handleQuoteSubmit(event)">
           
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <!-- Name Input Component Frame -->
@@ -535,12 +557,13 @@
             </div>
           </div>
 
-          <button type="submit" class="w-full bg-gold text-maroon-deep py-3.5 rounded-sm font-bold tracking-widest hover:bg-gold-bright hover:-translate-y-0.5 shadow-xl transition-all text-xs uppercase mt-2">Submit</button>
+          <button type="submit" id="submitBtn" class="w-full bg-gold text-maroon-deep py-3.5 rounded-sm font-bold tracking-widest hover:bg-gold-bright hover:-translate-y-0.5 shadow-xl transition-all text-xs uppercase mt-2">Submit Request</button>
         </form>
       </div>
 
     </div>
   </section>
+
 
 <!-- FOOTER -->
   <footer id="contact" class="bg-ink text-ivory/70 py-16 sm:py-20 border-t border-gold/10">
@@ -713,6 +736,37 @@
       const whatsappMsg = `Hi Sri Vaishnavi Caterers,%0A%0AI'm interested in catering for a ${occasion}.%0A%0A*Event Details:*%0AName: ${name}%0APhone: ${phone}%0ADate: ${date}%0AGuests: ${guests}%0ADetails: ${message}`;
       window.open(`https://wa.me/919036347577?text=${whatsappMsg}`, '_blank');
       event.target.reset();
+    }
+  </script>
+    <script>
+    function handleQuoteSubmit(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'TRANSMITTING...';
+
+      // ⚠️ REPLACE THIS URL WITH YOUR DEPLOYED WEB APP URL FROM STEP 2
+      const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwocwJogQIXv7fFVY4KmymtjD7rcrvd0fQy27g4r6niSF7nzbqZRRSYoTPyBkjzTnQ-zw/exec';
+
+      const formData = new FormData(event.target);
+
+      fetch(WEB_APP_URL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        alert('Quote Request Saved Successfully!');
+        event.target.reset();
+      })
+      .catch(error => {
+        console.error('Submission error:', error);
+        alert('There was an error saving your request. Please try again.');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'SUBMIT REQUEST';
+      });
     }
   </script>
 </body>
