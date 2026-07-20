@@ -101,20 +101,33 @@
   </nav>
 
   <!-- MOBILE FULLSCREEN MENU OVERLAY -->
-  <div id="mobileMenu" class="fixed inset-0 bg-maroon-deep/98 backdrop-blur-md z-[60] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-    <button id="closeMenuBtn" class="absolute top-6 right-6 text-gold-bright text-3xl focus:outline-none hover:scale-110 transition-transform">
+<!-- MOBILE FULLSCREEN MENU OVERLAY (Redesigned for Clarity) -->
+  <div id="mobileMenu" class="fixed inset-0 bg-white z-[60] flex flex-col pt-20 px-6 opacity-0 pointer-events-none transition-opacity duration-300">
+    <!-- Close Control Trigger -->
+    <button id="closeMenuBtn" class="absolute top-5 right-6 text-ink text-2xl focus:outline-none hover:scale-110 transition-transform">
       <i class="fa-solid fa-xmark"></i>
     </button>
-    <ul class="flex flex-col items-center gap-8 list-none text-center">
-      <li><a href="#about" class="mobile-link text-ivory text-lg tracking-[0.2em] uppercase font-semibold hover:text-gold-bright transition-colors">About</a></li>
-      <li><a href="#gallery" class="mobile-link text-ivory text-lg tracking-[0.2em] uppercase font-semibold hover:text-gold-bright transition-colors">Gallery</a></li>
-      <li><a href="#exports" class="mobile-link text-ivory text-lg tracking-[0.2em] uppercase font-semibold hover:text-gold-bright transition-colors">Exports</a></li>
-      <li><a href="#events" class="mobile-link text-ivory text-lg tracking-[0.2em] uppercase font-semibold hover:text-gold-bright transition-colors">Events</a></li>
-      <li><a href="#corporate" class="mobile-link text-ivory text-lg tracking-[0.2em] uppercase font-semibold hover:text-gold-bright transition-colors">Corporate</a></li>
-      <li><a href="#menu" class="mobile-link text-ivory text-lg tracking-[0.2em] uppercase font-semibold hover:text-gold-bright transition-colors">Menu</a></li>
+    
+    <!-- Top Identity Area -->
+    <div class="flex justify-center mb-10 pb-6 border-b border-maroon/5">
+      <img src="images/logo.avif" alt="Sri Vaishnavi Caterers Logo" class="h-12 w-auto">
+    </div>
+
+    <!-- Navigation Tracking Links -->
+    <ul class="flex flex-col items-center gap-6 list-none text-center">
+      <li><a href="#about" class="mobile-link text-ink text-base tracking-[0.2em] uppercase font-semibold hover:text-maroon transition-colors block py-2">About</a></li>
+      <li><a href="#gallery" class="mobile-link text-ink text-base tracking-[0.2em] uppercase font-semibold hover:text-maroon transition-colors block py-2">Gallery</a></li>
+      <li><a href="#exports" class="mobile-link text-ink text-base tracking-[0.2em] uppercase font-semibold hover:text-maroon transition-colors block py-2">Exports</a></li>
+      <li><a href="#events" class="mobile-link text-ink text-base tracking-[0.2em] uppercase font-semibold hover:text-maroon transition-colors block py-2">Events</a></li>
+      <li><a href="#corporate" class="mobile-link text-ink text-base tracking-[0.2em] uppercase font-semibold hover:text-maroon transition-colors block py-2">Corporate</a></li>
+      <li><a href="#menu" class="mobile-link text-ink text-base tracking-[0.2em] uppercase font-semibold hover:text-maroon transition-colors block py-2">Menu</a></li>
     </ul>
-    <div class="mt-12 text-center">
-      <a class="mobile-link bg-gold text-maroon-deep px-8 py-3.5 rounded-sm text-sm tracking-widest uppercase font-bold shadow-xl inline-block" href="tel:+919036347577">Call 90363 47577</a>
+
+    <!-- Primary Action Anchor Button -->
+    <div class="mt-auto mb-12 text-center w-full max-w-xs mx-auto">
+      <a class="mobile-link bg-maroon text-white w-full py-3.5 rounded-sm text-xs tracking-widest uppercase font-bold shadow-md block transition-colors hover:bg-maroon-soft" href="tel:+919036347577">
+        Call 90363 47577
+      </a>
     </div>
   </div>
 
