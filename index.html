@@ -8,9 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <!-- Tailwind CSS Play CDN -->
-   <!-- Add this to your <head> tag -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -36,6 +34,7 @@
           },
           animation: {
             'slide-lr': 'slideLeftToRight 30s linear infinite',
+            'pulse-slow': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           },
           keyframes: {
             slideLeftToRight: {
@@ -55,35 +54,53 @@
     @keyframes chipIn { to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
-<body class="bg-ivory text-ink font-sans antialiased selection:bg-gold selection:text-maroon-deep">
+<body class="bg-ivory text-ink font-sans antialiased selection:bg-gold selection:text-maroon-deep overflow-hidden">
 
-<!-- NAVBAR -->
-  <nav class="nav fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-5 bg-transparent transition-all duration-500 ease-in-out" id="nav">
-    <!-- Brand Logo Placement -->
+  <!-- LOGO LOADING SCREEN OVERLAY -->
+  <div id="loadingScreen" class="fixed inset-0 bg-cream z-[100] flex flex-col items-center justify-center transition-opacity duration-700 ease-out">
+    <div class="flex flex-col items-center gap-6">
+      <img src="images/loading.avif" alt="Sri Vaishnavi Caterers Logo" class="h-20 md:h-24 w-auto animate-pulse-slow">
+      <div class="w-24 h-0.5 bg-maroon/10 relative overflow-hidden rounded-full">
+        <div class="absolute h-full w-1/2 bg-gold left-0 top-0 rounded-full animate-[loadingBar_1.5s_infinite_ease-in-out]"></div>
+      </div>
+    </div>
+  </div>
+  <style>
+    @keyframes loadingBar {
+      0% { left: -50%; width: 30%; }
+      50% { width: 60%; }
+      100% { left: 100%; width: 30%; }
+    }
+  </style>
+
+  <!-- NAVBAR (Updated to Solid White Background) -->
+  <nav class="nav fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 bg-white shadow-md border-b border-maroon/5 transition-all duration-300 ease-in-out" id="nav">
+    <!-- Brand Logo -->
+    <!-- Brand Logo -->
     <a href="#" class="nav-brand relative z-50">
-      <img src="images/logo.png" alt="Sri Vaishnavi Caterers Logo" class="h-10 md:h-12 w-auto">
+      <img src="images/logo.avif" alt="Sri Vaishnavi Caterers Logo" class="h-12 md:h-16 w-auto max-w-[180px] md:max-w-[240px] object-contain">
     </a>
     
-    <!-- Desktop Menu (Why Us Removed) -->
+    <!-- Desktop Menu -->
     <ul class="nav-links hidden lg:flex items-center gap-8 list-none">
-      <li><a href="#about" class="text-ivory text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-gold-bright hover:after:w-full after:transition-all">About</a></li>
-      <li><a href="#gallery" class="text-ivory text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-gold-bright hover:after:w-full after:transition-all">Gallery</a></li>
-      <li><a href="#exports" class="text-ivory text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-gold-bright hover:after:w-full after:transition-all">Exports</a></li>
-      <li><a href="#events" class="text-ivory text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-gold-bright hover:after:w-full after:transition-all">Events</a></li>
-      <li><a href="#corporate" class="text-ivory text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-gold-bright hover:after:w-full after:transition-all">Corporate</a></li>
-      <li><a href="#menu" class="text-ivory text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-gold-bright hover:after:w-full after:transition-all">Menu</a></li>
+      <li><a href="#about" class="text-ink text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-maroon hover:after:w-full after:transition-all">About</a></li>
+      <li><a href="#gallery" class="text-ink text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-maroon hover:after:w-full after:transition-all">Gallery</a></li>
+      <li><a href="#exports" class="text-ink text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-maroon hover:after:w-full after:transition-all">Exports</a></li>
+      <li><a href="#events" class="text-ink text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-maroon hover:after:w-full after:transition-all">Events</a></li>
+      <li><a href="#corporate" class="text-ink text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-maroon hover:after:w-full after:transition-all">Corporate</a></li>
+      <li><a href="#menu" class="text-ink text-xs tracking-[0.2em] uppercase opacity-85 hover:opacity-100 transition-opacity font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-maroon hover:after:w-full after:transition-all">Menu</a></li>
     </ul>
 
     <!-- Mobile Controls & CTA -->
     <div class="flex items-center gap-4 z-50">
-      <a class="nav-call hidden sm:inline-block bg-gold text-maroon-deep px-6 py-2.5 rounded-sm text-xs tracking-widest uppercase font-semibold shadow-md hover:bg-gold-bright hover:shadow-lg transition-all" href="tel:+919036347577">Call Now</a>
-      <button id="mobileMenuBtn" class="lg:hidden text-gold-bright text-2xl focus:outline-none transition-transform hover:scale-110">
+      <a class="nav-call hidden sm:inline-block bg-maroon text-white px-6 py-2.5 rounded-sm text-xs tracking-widest uppercase font-semibold shadow-md hover:bg-maroon-soft transition-all" href="tel:+919036347577">Call Now</a>
+      <button id="mobileMenuBtn" class="lg:hidden text-maroon text-2xl focus:outline-none transition-transform hover:scale-110">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
   </nav>
 
-  <!-- MOBILE FULLSCREEN MENU OVERLAY (Why Us Removed) -->
+  <!-- MOBILE FULLSCREEN MENU OVERLAY -->
   <div id="mobileMenu" class="fixed inset-0 bg-maroon-deep/98 backdrop-blur-md z-[60] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
     <button id="closeMenuBtn" class="absolute top-6 right-6 text-gold-bright text-3xl focus:outline-none hover:scale-110 transition-transform">
       <i class="fa-solid fa-xmark"></i>
@@ -103,17 +120,17 @@
 
   <!-- HERO -->
   <section class="hero relative min-h-[100svh] flex items-center justify-center text-center overflow-hidden px-6 py-24">
-    <div class="absolute inset-0 bg-cover bg-center scale-105" style="background-image:url('./images/hero.jpg');"></div>
+    <div class="absolute inset-0 bg-cover bg-center scale-105" style="background-image:url('./images/hero.avif');"></div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(67,15,28,0.4)_0%,_rgba(43,9,18,0.95)_85%),_linear-gradient(to_bottom,_rgba(67,15,28,0.6),_rgba(43,9,18,0.98))]"></div>
-    <div class="hero-inner relative z-10 max-w-4xl mx-auto">
+    <div class="hero-inner relative z-10 max-w-4xl mx-auto mt-12">
       <div class="eyebrow inline-flex items-center gap-4 text-gold-bright text-xs tracking-[0.4em] uppercase mb-8 after:w-8 sm:after:w-12 after:h-px after:bg-gold-bright/60 before:w-8 sm:before:w-12 before:h-px before:bg-gold-bright/60">Malleshwaram, Bangalore</div>
       <h1 class="font-signature text-gold-bright text-5xl sm:text-7xl md:text-8xl leading-tight mb-6 drop-shadow-md">Sri Vaishnavi Caterers</h1>
       <p class="tagline font-serif italic text-xl sm:text-2xl md:text-3xl text-ivory max-w-2xl mx-auto opacity-95 leading-relaxed font-light">Premium vegetarian catering engineered for grand corporate milestones and all celebratory family events with flawless execution</p>
       <div class="hero-cta flex gap-5 justify-center mt-12 flex-wrap">
-  <a class="btn bg-gold text-maroon-deep px-8 py-4 rounded-sm text-xs tracking-widest uppercase font-semibold inline-flex items-center gap-3 shadow-xl hover:bg-gold-bright hover:-translate-y-0.5 transition-all duration-300" href="tel:+919036347577">
-      Events &amp; Catering
-  </a>
-</div>
+        <a class="btn bg-gold text-maroon-deep px-8 py-4 rounded-sm text-xs tracking-widest uppercase font-semibold inline-flex items-center gap-3 shadow-xl hover:bg-gold-bright hover:-translate-y-0.5 transition-all duration-300" href="tel:+919036347577">
+            Events &amp; Catering
+        </a>
+      </div>
     </div>
   </section>
 
@@ -135,7 +152,7 @@
         <div class="relative w-full max-w-md p-4">
           <div class="absolute inset-0 border-2 border-dashed border-gold/30 rounded-lg transform rotate-2"></div>
           <div class="h-[460px] rounded-sm overflow-hidden shadow-2xl relative z-10 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-            <img src="./images/Glicine-e-Food-styling.jpg" alt="Traditional South Indian meal being served cleanly" class="w-full h-full object-cover filter saturate-[1.05]">
+            <img src="./images/Glicine-e-Food-styling.avif" alt="Traditional South Indian meal being served cleanly" class="w-full h-full object-cover filter saturate-[1.05]">
             <div class="absolute inset-0 bg-gradient-to-t from-maroon-deep/40 to-transparent"></div>
           </div>
         </div>
@@ -143,7 +160,7 @@
     </div>
   </section>
 
-<!-- SIGNATURE SPREAD GALLERY -->
+  <!-- SIGNATURE SPREAD GALLERY -->
   <section class="section bg-ivory py-16" id="gallery">
     <div class="wrap max-w-7xl mx-auto px-6 md:px-12">
       <div class="section-head text-center max-w-2xl mx-auto mb-12 reveal">
@@ -157,11 +174,9 @@
       <div class="gallery-grid grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch reveal">
         <!-- Card 1 -->
         <div class="group relative md:col-span-7 h-[400px] md:h-[480px] rounded-lg overflow-hidden shadow-xl bg-ink transition-all duration-500 hover:shadow-2xl">
-          <img src="images/FestiveThali.jpg" alt="Festive thali setup" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-90 filter saturate-[1.08]">
-          <!-- Enhanced dark gradient overlay for text readability -->
+          <img src="images/FestiveThali.avif" alt="Festive thali setup" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-90 filter saturate-[1.08]">
           <div class="absolute inset-0 bg-gradient-to-t from-maroon-deep/95 via-maroon-deep/70 to-transparent opacity-95"></div>
           <div class="absolute inset-0 p-8 sm:p-12 flex flex-col justify-end transform transition-transform duration-500">
-            <!-- High contrast text color alignment -->
             <span class="text-xs tracking-[0.3em] uppercase text-white font-bold mb-2 pl-2 border-l-2 border-gold inline-block">Festive Thali Assembly</span>
             <h3 class="font-serif text-3xl sm:text-4xl text-white font-semibold leading-tight max-w-md">A traditional legacy feast, plated with immaculate attention to color and placement</h3>
           </div>
@@ -171,11 +186,9 @@
         <div class="md:col-span-5 flex flex-col gap-8 justify-between">
           <!-- Card 2 -->
           <div class="group relative h-[224px] rounded-lg overflow-hidden shadow-xl bg-ink transition-all duration-500 hover:shadow-2xl">
-            <img src="./images/Ghee-Rice.jpg" alt="Rice varieties" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 filter saturate-[1.05]">
-            <!-- Enhanced dark gradient overlay for text readability -->
+            <img src="./images/Ghee-Rice.avif" alt="Rice varieties" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 filter saturate-[1.05]">
             <div class="absolute inset-0 bg-gradient-to-t from-maroon-deep/95 via-maroon-deep/60 to-transparent opacity-95"></div>
             <div class="absolute inset-0 p-8 flex flex-col justify-end">
-              <!-- High contrast text color alignment -->
               <span class="text-[10px] tracking-[0.3em] uppercase text-white font-bold mb-1 pl-2 border-l-2 border-gold inline-block">Aromatic Rice Base</span>
               <h3 class="font-serif text-2xl text-white font-medium">Fragrant vegetable pulao &amp; clean heritage ghee rice blends</h3>
             </div>
@@ -183,11 +196,9 @@
           
           <!-- Card 3 -->
           <div class="group relative h-[224px] rounded-lg overflow-hidden shadow-xl bg-ink transition-all duration-500 hover:shadow-2xl">
-            <img src="./images/indian-sweets-plate.jpg" alt="Indian desserts assortment" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 filter saturate-[1.05]">
-            <!-- Enhanced dark gradient overlay for text readability -->
+            <img src="./images/indian-sweets-plate.avif" alt="Indian desserts assortment" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 filter saturate-[1.05]">
             <div class="absolute inset-0 bg-gradient-to-t from-maroon-deep/95 via-maroon-deep/60 to-transparent opacity-95"></div>
             <div class="absolute inset-0 p-8 flex flex-col justify-end">
-              <!-- High contrast text color alignment -->
               <span class="text-[10px] tracking-[0.3em] uppercase text-white font-bold mb-1 pl-2 border-l-2 border-gold inline-block">Sweet Endings Artisan Layer</span>
               <h3 class="font-serif text-2xl text-white font-medium">Rich textured laddus, tender jamuns &amp; custom warm payasam</h3>
             </div>
@@ -197,11 +208,9 @@
     </div>
   </section>
 
-<!-- EXPORTS -->
+  <!-- EXPORTS -->
   <section class="section relative py-16 overflow-hidden" id="exports">
     <div class="wrap max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-      
-      <!-- Section Header Control -->
       <div class="section-head text-center max-w-2xl mx-auto mb-12 reveal">
         <span class="text-maroon text-xs tracking-[0.3em] uppercase font-bold mb-3 block">Global Logistics Distribution</span>
         <h2 class="font-serif text-4xl sm:text-5xl text-maroon-deep font-bold">Premium International Deliveries</h2>
@@ -223,7 +232,7 @@
             </ul>
           </div>
           <div class="w-full h-44 rounded-md overflow-hidden mt-8 shadow-inner relative group bg-ink">
-            <img src="./images/mixcgn.jpg" alt="Festive sweets assortment box" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-90">
+            <img src="./images/mixcgn.avif" alt="Festive sweets assortment box" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-90">
           </div>
         </div>
 
@@ -243,15 +252,15 @@
           
           <div class="grid grid-cols-3 gap-4">
             <div class="group relative h-28 sm:h-32 rounded-md overflow-hidden bg-ivory shadow shadow-inner">
-              <img src="./images/Chakli.jpg" alt="Chakli details" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+              <img src="./images/Chakli.avif" alt="Chakli details" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
               <div class="absolute inset-0 bg-maroon-deep/10 group-hover:bg-transparent transition-colors"></div>
             </div>
             <div class="group relative h-28 sm:h-32 rounded-md overflow-hidden bg-ivory shadow shadow-inner">
-              <img src="./images/Nippat.jpg" alt="Nippat details" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+              <img src="./images/Nippat.avif" alt="Nippat details" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
               <div class="absolute inset-0 bg-maroon-deep/10 group-hover:bg-transparent transition-colors"></div>
             </div>
             <div class="group relative h-28 sm:h-32 rounded-md overflow-hidden bg-ivory shadow shadow-inner">
-              <img src="./images/garlic-podi.jpg" alt="Garlic podi mix" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+              <img src="./images/garlic-podi.avif" alt="Garlic podi mix" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
               <div class="absolute inset-0 bg-maroon-deep/10 group-hover:bg-transparent transition-colors"></div>
             </div>
           </div>
@@ -277,7 +286,7 @@
 
       <div class="events-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
         <div class="group relative h-80 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-ink">
-          <img src="./images/Weddings.jpg" alt="Wedding feast celebration" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter saturate-[1.04]">
+          <img src="./images/Weddings.avif" alt="Wedding feast celebration" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter saturate-[1.04]">
           <div class="absolute inset-0 bg-gradient-to-t from-maroon-deep via-maroon-deep/40 to-transparent opacity-95"></div>
           <div class="relative z-10 h-full flex flex-col justify-end p-6">
             <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold-bright text-lg mb-3 border border-gold/30"><i class="fas fa-ring"></i></div>
@@ -287,7 +296,7 @@
         </div>
 
         <div class="group relative h-80 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-ink">
-          <img src="./images/Birthday Events.jpg" alt="Birthday setup distribution" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter saturate-[1.04]">
+          <img src="./images/Birthday Events.avif" alt="Birthday setup distribution" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter saturate-[1.04]">
           <div class="absolute inset-0 bg-gradient-to-t from-maroon-deep via-maroon-deep/40 to-transparent opacity-95"></div>
           <div class="relative z-10 h-full flex flex-col justify-end p-6">
             <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold-bright text-lg mb-3 border border-gold/30"><i class="fas fa-birthday-cake"></i></div>
@@ -297,7 +306,7 @@
         </div>
 
         <div class="group relative h-80 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-ink">
-          <img src="./images/Family Events.jpg" alt="Family reunion gathering food" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter saturate-[1.04]">
+          <img src="./images/Family Events.avif" alt="Family reunion gathering food" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter saturate-[1.04]">
           <div class="absolute inset-0 bg-gradient-to-t from-maroon-deep via-maroon-deep/40 to-transparent opacity-95"></div>
           <div class="relative z-10 h-full flex flex-col justify-end p-6">
             <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold-bright text-lg mb-3 border border-gold/30"><i class="fas fa-users"></i></div>
@@ -307,7 +316,7 @@
         </div>
 
         <div class="group relative h-80 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-ink border border-gold/30">
-          <img src="./images/Office Events.jpg" alt="Corporate office lunch framework" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter saturate-[1.04]">
+          <img src="./images/Office Events.avif" alt="Corporate office lunch framework" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter saturate-[1.04]">
           <div class="absolute inset-0 bg-gradient-to-t from-maroon-deep via-maroon-deep/50 to-transparent opacity-95"></div>
           <div class="relative z-10 h-full flex flex-col justify-end p-6">
             <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold-bright text-lg mb-3 border border-gold/30"><i class="fas fa-briefcase"></i></div>
@@ -329,7 +338,7 @@
         <p class="text-ink-soft text-base leading-relaxed font-light">From daily working lunches to refined new brand launches, we build robust schedules to ensure strict compliance with institutional health parameters and absolute punctual execution metrics.</p>
         
         <div class="rounded-lg overflow-hidden shadow-md h-48 relative group bg-ink">
-          <img src="./images/buffesystem.jpg" alt="Boxed corporate meals array" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="./images/buffesystem.avif" alt="Boxed corporate meals array" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         </div>
         
         <div class="space-y-3">
@@ -373,10 +382,9 @@
     </div>
   </section>
 
- <!-- MENU -->
+  <!-- MENU -->
   <section class="section menu bg-maroon-deep text-ivory py-12" id="menu">
     <div class="wrap max-w-7xl mx-auto px-6 md:px-12">
-      <!-- Section Header Control with Compressed Margins -->
       <div class="section-head text-center max-w-2xl mx-auto mb-6 reveal">
         <div class="section-eyebrow text-gold-bright text-xs tracking-[0.3em] uppercase font-bold mb-2">The Gastronomic Array</div>
         <h2 class="font-serif text-3xl sm:text-4xl text-ivory font-bold">Served Custom To Your Taste</h2>
@@ -385,10 +393,8 @@
         </div>
       </div>
       
-      <!-- Compressed Tab Spacing -->
       <div class="leaf-tabs flex flex-wrap justify-center gap-2 sm:gap-3 mb-6" id="leafTabs"></div>
       
-      <!-- Menu Item Display Panel Area -->
       <div class="relative border border-leaf-light/30 bg-[radial-gradient(ellipse_at_center,_rgba(76,107,69,0.2),_transparent_75%)] rounded-lg p-5 sm:p-8 min-h-[260px]">
         <div class="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-leaf-light/40 rounded-tl"></div>
         <div class="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-leaf-light/40 rounded-br"></div>
@@ -397,16 +403,12 @@
     </div>
   </section>
 
-<!-- WHY CHOOSE US -->
+  <!-- WHY CHOOSE US -->
   <section class="section relative py-16 bg-cream" id="why">
     <div class="wrap max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-      
-      <!-- Section Header Control with Custom Smooth Organic Divider -->
       <div class="section-head text-center max-w-2xl mx-auto mb-12 reveal">
         <span class="text-maroon text-xs tracking-[0.3em] uppercase font-bold mb-2 block">Our Structural Code</span>
         <h2 class="font-serif text-4xl sm:text-5xl text-maroon-deep font-bold">Sri Vaishnavi's Promise</h2>
-        
-        <!-- Smooth Organic Divider Line -->
         <div class="w-32 h-3 mx-auto mt-3 text-gold">
           <svg viewBox="0 0 120 10" class="w-full h-full fill-none stroke-current" stroke-width="2" stroke-linecap="round">
             <path d="M 10,5 C 40,-2 80,12 110,5" />
@@ -414,39 +416,31 @@
         </div>
       </div>
       
-      <!-- Content Grid Layout -->
       <div class="why-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-        <!-- Card 1 -->
         <div class="why-card bg-ivory rounded-lg p-6 border border-maroon/5 shadow-sm space-y-3 transition-all hover:-translate-y-1 hover:shadow-md">
           <div class="text-maroon text-2xl"><i class="fas fa-star"></i></div>
           <h3 class="text-lg text-maroon-deep font-bold font-serif">Authentic Recipes</h3>
           <p class="text-xs text-ink-soft leading-relaxed font-light">Pure, time-honored South Indian preparations built alongside fresh components sourced from heritage local chains.</p>
         </div>
-        
-        <!-- Card 2 -->
         <div class="why-card bg-ivory rounded-lg p-6 border border-maroon/5 shadow-sm space-y-3 transition-all hover:-translate-y-1 hover:shadow-md">
           <div class="text-maroon text-2xl"><i class="fas fa-heart"></i></div>
           <h3 class="text-lg text-maroon-deep font-bold font-serif">Granular Adjustments</h3>
           <p class="text-xs text-ink-soft leading-relaxed font-light">Custom component re-allocation setups scaled to match strict macro dietary or community specific food layouts flawlessly.</p>
         </div>
-        
-        <!-- Card 3 -->
         <div class="why-card bg-ivory rounded-lg p-6 border border-maroon/5 shadow-sm space-y-3 transition-all hover:-translate-y-1 hover:shadow-md">
           <div class="text-maroon text-2xl"><i class="fas fa-clock"></i></div>
           <h3 class="text-lg text-maroon-deep font-bold font-serif">Punctual Staging</h3>
           <p class="text-xs text-ink-soft leading-relaxed font-light">Highly strategic distribution timelines guarantee physical buffet readiness completed early across any destination node.</p>
         </div>
-        
-        <!-- Card 4 -->
         <div class="why-card bg-ivory rounded-lg p-6 border border-maroon/5 shadow-sm space-y-3 transition-all hover:-translate-y-1 hover:shadow-md">
           <div class="text-maroon text-2xl"><i class="fas fa-check-circle"></i></div>
           <h3 class="text-lg text-maroon-deep font-bold font-serif">Trusted Longevity</h3>
           <p class="text-xs text-ink-soft leading-relaxed font-light">Over two decades of operations managing high-tier catering arrays for generations of families inside Bangalore.</p>
         </div>
       </div>
-
     </div>
   </section>
+
   <!-- REVIEWS -->
   <section class="section testimonials bg-cream py-28 overflow-hidden" id="testimonials">
     <div class="wrap max-w-7xl mx-auto px-6 md:px-12">
@@ -460,29 +454,22 @@
     </div>
     
     <div class="slider-viewport w-full overflow-hidden relative group mt-4">
-      <div class="slider-track flex gap-6 w-max animate-slide-lr group-hover:[animation-play-state:paused]" id="reviewsSliderTrack">
-      </div>
+      <div class="slider-track flex gap-6 w-max animate-slide-lr group-hover:[animation-play-state:paused]" id="reviewsSliderTrack"></div>
     </div>
   </section>
 
-<!-- ALLOCATION SETUP / QUOTE SECTION -->
+  <!-- ALLOCATION SETUP / QUOTE SECTION -->
   <section class="section relative text-ivory py-16 overflow-hidden bg-maroon-deep" id="quote">
     <div class="wrap max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
-      
-      <!-- Section Header Control -->
       <div class="section-head text-center max-w-xl mx-auto mb-10 reveal">
         <span class="text-gold-bright text-[10px] tracking-[0.3em] uppercase font-bold mb-2 block">Allocation Setup Channel</span>
         <h2 class="font-serif text-3xl sm:text-4xl text-white font-bold">Plan Your Catering Setup</h2>
         <div class="w-24 h-0.5 bg-gold-bright/40 mx-auto mt-3 rounded-full"></div>
       </div>
 
-      <!-- INTERACTIVE INPUT FORM WITH FONT AWESOME ICONS -->
       <div class="bg-maroon/20 p-6 sm:p-10 rounded-lg border border-gold/10 backdrop-blur-md shadow-2xl flex flex-col justify-center">
-        <!-- Added id for easy DOM targeting -->
         <form id="cateringQuoteForm" class="grid gap-4 text-left" onsubmit="handleQuoteSubmit(event)">
-          
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <!-- Name Input Component Frame -->
             <div class="flex flex-col">
               <label for="name" class="text-[10px] tracking-widest uppercase mb-1 text-gold-bright font-bold">Your Name *</label>
               <div class="relative flex items-center">
@@ -491,7 +478,6 @@
               </div>
             </div>
             
-            <!-- Phone Input Component Frame -->
             <div class="flex flex-col">
               <label for="phone" class="text-[10px] tracking-widest uppercase mb-1 text-gold-bright font-bold">Phone Number *</label>
               <div class="relative flex items-center">
@@ -502,7 +488,6 @@
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <!-- Email Input Component Frame -->
             <div class="flex flex-col">
               <label for="email" class="text-[10px] tracking-widest uppercase mb-1 text-gold-bright font-bold">Email Address</label>
               <div class="relative flex items-center">
@@ -511,7 +496,6 @@
               </div>
             </div>
             
-            <!-- Date Input Component Frame -->
             <div class="flex flex-col">
               <label for="date" class="text-[10px] tracking-widest uppercase mb-1 text-gold-bright font-bold">Event Date *</label>
               <div class="relative flex items-center">
@@ -522,7 +506,6 @@
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <!-- Guest Metrics Input Component Frame -->
             <div class="flex flex-col">
               <label for="guests" class="text-[10px] tracking-widest uppercase mb-1 text-gold-bright font-bold">Number of Guests *</label>
               <div class="relative flex items-center">
@@ -531,7 +514,6 @@
               </div>
             </div>
             
-            <!-- Occasion Select Input Component Frame -->
             <div class="flex flex-col">
               <label for="occasion" class="text-[10px] tracking-widest uppercase mb-1 text-gold-bright font-bold">Occasion Type *</label>
               <div class="relative flex items-center">
@@ -548,7 +530,6 @@
             </div>
           </div>
 
-          <!-- Message Textarea Input Component Frame -->
           <div class="flex flex-col">
             <label for="message" class="text-[10px] tracking-widest uppercase mb-1 text-gold-bright font-bold">Event Details &amp; Menu Intent *</label>
             <div class="relative flex items-stretch">
@@ -560,51 +541,74 @@
           <button type="submit" id="submitBtn" class="w-full bg-gold text-maroon-deep py-3.5 rounded-sm font-bold tracking-widest hover:bg-gold-bright hover:-translate-y-0.5 shadow-xl transition-all text-xs uppercase mt-2">Submit Request</button>
         </form>
       </div>
-
     </div>
   </section>
 
-
 <!-- FOOTER -->
-  <footer id="contact" class="bg-ink text-ivory/70 py-16 sm:py-20 border-t border-gold/10">
-    <div class="wrap max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12 sm:gap-16 border-b border-white/5 pb-12 sm:pb-16 text-center md:text-left">
-      <div class="space-y-4">
-        <div class="footer-brand font-signature text-2xl text-gold-bright">Sri Vaishnavi Caterers</div>
-        <p class="text-xs text-white/50 leading-relaxed font-light font-sans">Shringar Apartments, Malleshwaram Layout<br>Bangalore, Karnataka, India</p>
-      </div>
-      <div class="space-y-4">
-        <h4 class="text-xs font-bold tracking-widest uppercase text-gold-bright">Secure Contact Gateways</h4>
-        <p class="text-sm font-light leading-loose space-y-2">
-          <span class="block">
-            <i class="fa-solid fa-phone text-gold-bright mr-2 text-xs"></i>
-            <a href="tel:+919036347577" class="hover:text-gold text-white font-medium transition-colors">90363 47577</a>
-          </span>
-          <span class="block">
-            <i class="fa-solid fa-envelope text-gold-bright mr-2 text-xs"></i>
-            <a href="mailto:dsaicharan@gmail.com" class="hover:text-gold text-white font-medium transition-colors">dsaicharan@gmail.com</a>
-          </span>
+  <footer id="contact" class="bg-white text-ink py-16 sm:py-20 border-t border-maroon/10">
+    <div class="wrap max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12 sm:gap-16 border-b border-maroon/5 pb-12 sm:pb-16 items-start text-center md:text-left">
+      
+      <!-- Brand & Address Column -->
+      <div class="space-y-5 flex flex-col items-center md:items-start">
+        <a href="#" class="inline-block transition-transform hover:scale-105 duration-300">
+          <img src="images/logo.avif" alt="Sri Vaishnavi Caterers Logo" class="h-12 w-auto">
+        </a>
+        <p class="text-xs text-ink opacity-90 leading-relaxed font-light font-sans max-w-xs">
+          Shringar Apartments, Malleshwaram Layout<br>Bangalore, Karnataka, India
         </p>
       </div>
+
+      <!-- Contact Info Column -->
       <div class="space-y-4">
-        <h4 class="text-xs font-bold tracking-widest uppercase text-gold-bright">Functional Tracks</h4>
-        <p class="text-xs leading-relaxed space-y-1 font-light text-white/60">
-          <span class="block">Traditional Marriage Feasts</span>
-          <span class="block">Institutional Corporate Catering</span>
-          <span class="block">Vacuum Food Package Exports</span>
-        </p>
+        <h4 class="text-xs font-bold tracking-[0.2em] uppercase text-maroon font-bold">Secure Contact Gateways</h4>
+        <div class="text-sm font-light leading-loose space-y-3 flex flex-col items-center md:items-start">
+          <a href="tel:+919036347577" class="inline-flex items-center gap-2.5 text-ink hover:text-maroon font-medium transition-colors group">
+            <span class="w-7 h-7 rounded-full bg-maroon/5 flex items-center justify-center text-xs text-maroon group-hover:bg-maroon group-hover:text-white transition-colors">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <span>90363 47577</span>
+          </a>
+          <a href="mailto:dsaicharan@gmail.com" class="inline-flex items-center gap-2.5 text-ink hover:text-maroon font-medium transition-colors group">
+            <span class="w-7 h-7 rounded-full bg-maroon/5 flex items-center justify-center text-xs text-maroon group-hover:bg-maroon group-hover:text-white transition-colors">
+              <i class="fa-solid fa-envelope"></i>
+            </span>
+            <span>dsaicharan@gmail.com</span>
+          </a>
+        </div>
       </div>
+
+      <!-- Links/Services Column -->
+      <div class="space-y-4">
+        <h4 class="text-xs font-bold tracking-[0.2em] uppercase text-maroon font-bold">Functional Tracks</h4>
+        <ul class="text-xs space-y-2.5 font-light text-ink list-none p-0 m-0">
+          <li class="flex items-center justify-center md:justify-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+            Traditional Marriage Feasts
+          </li>
+          <li class="flex items-center justify-center md:justify-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+            Institutional Corporate Catering
+          </li>
+          <li class="flex items-center justify-center md:justify-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+            Vacuum Food Package Exports
+          </li>
+        </ul>
+      </div>
+
     </div>
-    <div class="footer-bottom text-center text-[10px] sm:text-[11px] text-white/30 pt-8 tracking-wider">&copy; 2026 Sri Vaishnavi Caterers. All configuration rights reserved.</div>
+    
+    <!-- Footer Bottom Copyright -->
+    <div class="footer-bottom text-center text-[10px] sm:text-[11px] text-ink opacity-80 pt-8 tracking-wider">
+      &copy; 2026 Sri Vaishnavi Caterers. All configuration rights reserved.
+    </div>
   </footer>
 
-
-  <!-- DUAL FLOATING ACTION DECK (RIGHT SIDE - FOR BOTH PHONE & DESKTOP DESIGNS) -->
+  <!-- DUAL FLOATING ACTION DECK -->
   <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3.5 items-center">
-    <!-- Call Now Rounded Toggle Floating Button -->
     <a href="tel:+919036347577" class="w-12 h-12 sm:w-14 sm:h-14 bg-gold text-maroon-deep rounded-full flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:scale-110 active:scale-95 transition-all duration-300 border border-gold-bright/30" title="Call Us Directly">
       <i class="fa-solid fa-phone text-lg sm:text-xl"></i>
     </a>
-    <!-- WhatsApp Rounded Floating Button -->
     <a href="https://wa.me/919036347577?text=Hi%20Sri%20Vaishnavi%20Caterers,%20I'd%20like%20to%20know%20more%20about%20your%20catering%20services." class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#25D366] to-[#20BA5A] rounded-full flex items-center justify-center text-white shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:scale-110 active:scale-95 transition-all duration-300 border border-[#20BA5A]/20" title="Chat with us on WhatsApp" target="_blank" rel="noopener">
       <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i>
     </a>
@@ -612,40 +616,34 @@
 
   <!-- SCRIPT LOGIC -->
   <script>
-    // --- NAV & MOBILE MENU LOGIC ---
-    const nav = document.getElementById('nav');
+    // --- LOADING SCREEN DISMISSAL ---
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loadingScreen');
+      setTimeout(() => {
+        loader.classList.add('opacity-0', 'pointer-events-none');
+        document.body.classList.remove('overflow-hidden');
+      }, 800); // Small natural buffer delay for smooth transition
+    });
+
+    // --- NAVIGATION MOBILE INTERACTION ---
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const closeMenuBtn = document.getElementById('closeMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 40) {
-        nav.classList.add('bg-maroon-deep/95', 'backdrop-blur-md', 'shadow-2xl', 'py-3.5', 'border-b', 'border-gold/10');
-        nav.classList.remove('py-5');
-      } else {
-        nav.classList.remove('bg-maroon-deep/95', 'backdrop-blur-md', 'shadow-2xl', 'py-3.5', 'border-b', 'border-gold/10');
-        nav.classList.add('py-5');
-      }
-    });
-
     function toggleMobileMenu() {
       if (mobileMenu.classList.contains('pointer-events-none')) {
-        // Open
         mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
       } else {
-        // Close
         mobileMenu.classList.add('pointer-events-none', 'opacity-0');
-        document.body.style.overflow = 'auto'; // Restore scrolling
+        document.body.style.overflow = 'auto';
       }
     }
 
     mobileMenuBtn.addEventListener('click', toggleMobileMenu);
     closeMenuBtn.addEventListener('click', toggleMobileMenu);
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', toggleMobileMenu);
-    });
+    mobileLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
 
     // --- SCROLL REVEAL LOGIC ---
     const revealEls = document.querySelectorAll('.reveal');
@@ -723,22 +721,6 @@
     sliderTrack.innerHTML = [...reviewsData, ...reviewsData, ...reviewsData].map(createReviewCard).join('');
 
     // --- FORM SUBMISSION ---
-    function handleQuoteSubmit(event){
-      event.preventDefault();
-      const formData = new FormData(event.target);
-      const name = formData.get('name');
-      const phone = formData.get('phone');
-      const occasion = formData.get('occasion');
-      const guests = formData.get('guests');
-      const date = formData.get('date');
-      const message = formData.get('message');
-
-      const whatsappMsg = `Hi Sri Vaishnavi Caterers,%0A%0AI'm interested in catering for a ${occasion}.%0A%0A*Event Details:*%0AName: ${name}%0APhone: ${phone}%0ADate: ${date}%0AGuests: ${guests}%0ADetails: ${message}`;
-      window.open(`https://wa.me/919036347577?text=${whatsappMsg}`, '_blank');
-      event.target.reset();
-    }
-  </script>
-    <script>
     function handleQuoteSubmit(event) {
       event.preventDefault();
       
@@ -746,9 +728,7 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'TRANSMITTING...';
 
-      // ⚠️ REPLACE THIS URL WITH YOUR DEPLOYED WEB APP URL FROM STEP 2
       const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwocwJogQIXv7fFVY4KmymtjD7rcrvd0fQy27g4r6niSF7nzbqZRRSYoTPyBkjzTnQ-zw/exec';
-
       const formData = new FormData(event.target);
 
       fetch(WEB_APP_URL, {
